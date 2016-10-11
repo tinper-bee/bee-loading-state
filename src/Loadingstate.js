@@ -7,17 +7,17 @@ const propTypes = {
 	/**
 	 * @title loading时间
 	 */
-	loadingTime: PropTypes.number.isRequired,
+	loadingTime: PropTypes.number.string,
 	/**
 	 * @title loading时的文字
 	 */
-	loadingText: PropTypes.string.isRequired,
+	loadingText: PropTypes.string.string,
 	
 }
 
 const defaultProps = {
   loadingTime: 300,
-  loadingText: '',
+  loadingText: 'loading',
 }
 
 const clsPrefix = 'u-button';
