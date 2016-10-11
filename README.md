@@ -36,7 +36,7 @@ React.render(<div>
 </div>, document.getElementById('target'));
 ```
 #### 样式引入
-- 因为loadingstate是依赖于button,所以引用使用link引入dist目录下button.css
+- 因为loadingstate是依赖于button,所以使用link引入dist目录下button.css
 ```
 <link rel="stylesheet" href="./node_modules/build/bee-button.css">
 ```
@@ -54,6 +54,9 @@ import "./node_modules/build/bee-button.css"
 
 
 ## API
+
+button的参数在loadingstate同样适用，
+loadingstate扩展的参数如下。
 |参数|说明|类型|默认值|
 |---|----|---|------|
 |loadingText|loading的时候显示内容,默认值loading|string|medium|
