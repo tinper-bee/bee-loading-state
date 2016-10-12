@@ -49,7 +49,7 @@ class Loadingstate extends React.Component{
 
 	}
 }
-Loadingstate.PropTypes = propTypes;
+Loadingstate.propTypes = propTypes;
 Loadingstate.defaultProps = defaultProps;
 
 export default Loadingstate;
