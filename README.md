@@ -59,5 +59,5 @@ button的参数在loadingstate同样适用，
 loadingstate扩展的参数如下。
 |参数|说明|类型|默认值|
 |---|----|---|------|
-|loadingText|loading的时候显示内容,默认值loading|string|medium|
-|loadingTime|loading的时间，默认300ms|number|''|
+|loadingText|loading时显示内容|string|loading|
+|loadingTime|loading的时间|number|300ms|
