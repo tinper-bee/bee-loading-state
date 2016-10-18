@@ -1,34 +1,34 @@
-# bee-loadingstate
-[![npm version](https://img.shields.io/npm/v/bee-loadingstate.svg)](https://www.npmjs.com/package/bee-loadingstate)
-[![Build Status](https://img.shields.io/travis/tinper-bee/generator-tinper-bee/master.svg)](https://travis-ci.org/tinper-bee/bee-loadingstate)
-[![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-loadingstate.svg)](https://david-dm.org/tinper-bee/bee-loadingstate#info=devDependencies)
+# bee-loading-state
+[![npm version](https://img.shields.io/npm/v/bee-loading-state.svg)](https://www.npmjs.com/package/bee-loading-state)
+[![Build Status](https://img.shields.io/travis/tinper-bee/generator-tinper-bee/master.svg)](https://travis-ci.org/tinper-bee/bee-loading-state)
+[![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-loading-state.svg)](https://david-dm.org/tinper-bee/bee-loading-state#info=devDependencies)
 
 
-react bee-loadingstate component for tinper-bee
+bee-loading-state 组件常用于在按钮上加载状态
 
-#### setup develop environment
+#### 安装步骤
 
 ```sh
-$ git clone https://github.com/tinper-bee/bee-loadingstate
-$ cd bee-loadingstate
+$ git clone https://github.com/tinper-bee/bee-loading-state
+$ cd bee-loading-state
 $ npm install
 $ npm run dev
 ```
 ## 使用
 
-### loadingstate依赖于button,使用loadingstate还需把button组件down下来
+### loading-state依赖于button,使用loading-state还需把button组件down下来
 ```sh
-$ npm install bee-button
+$ npm install bee-loading-state
 $ npm run dev
 ```
 #### 组件引入
-先进行下载loadingstate包
+先进行下载loading-state包
 ```
-npm install --save bee-loadingstate
+npm install --save bee-loading-state
 ```
 组件调用
 ```js
-import { Loadingstate } from 'bee-Loadingstate';
+import { Loadingstate } from 'bee-Loading-state';
 React.render(<div>
     <div>
         <Loadingstate loadingTime="4000" loadingText="loading...">Confirm</Loadingstate>
@@ -36,7 +36,7 @@ React.render(<div>
 </div>, document.getElementById('target'));
 ```
 #### 样式引入
-- 因为loadingstate是依赖于button,所以使用link引入dist目录下button.css
+- 因为loading-state是依赖于button,所以使用link引入dist目录下button.css
 ```
 <link rel="stylesheet" href="./node_modules/build/bee-button.css">
 ```
@@ -55,8 +55,8 @@ import "./node_modules/build/bee-button.css"
 
 ## API
 
-button的参数在loadingstate同样适用，
-loadingstate扩展的参数如下。
+button的参数在loading-state同样适用，
+loading-state扩展的参数如下。
 |参数|说明|类型|默认值|
 |---|----|---|------|
 |loadingText|loading时显示内容|string|loading|
