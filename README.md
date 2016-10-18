@@ -57,6 +57,8 @@ import "./node_modules/build/bee-button.css"
 
 button的参数在loading-state同样适用，
 loading-state扩展的参数如下。
+
+
 |参数|说明|类型|默认值|
 |---|----|---|------|
 |loadingText|loading时显示内容|string|loading|
