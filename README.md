@@ -16,7 +16,7 @@ $ npm run dev
 ```
 ## 使用
 
-### loading-state依赖于button,使用loading-state还需把button组件down下来
+loading-state依赖于button,使用loading-state还需把button组件down下来
 ```sh
 $ npm install bee-loading-state
 $ npm run dev
