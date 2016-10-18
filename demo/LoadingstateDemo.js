@@ -9,7 +9,7 @@ class Demo extends Component {
 
 	render(){
 		return (
-			<Loadingstate loadingTime="4000" loadingText="waiting...">Confirm</Loadingstate>
+			<Loadingstate loadingTime="400" loadingText="waiting...">Confirm</Loadingstate>
 		)
 		
 	}

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes}from 'react';
-import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import { Button } from 'bee-button'
 
@@ -7,16 +6,16 @@ const propTypes = {
 	/**
 	 * @title loading时间
 	 */
-	loadingTime: PropTypes.number.string,
+	loadingTime: PropTypes.string,
 	/**
 	 * @title loading时的文字
 	 */
-	loadingText: PropTypes.string.string,
+	loadingText: PropTypes.string,
 	
 }
 
 const defaultProps = {
-  loadingTime: 300,
+  loadingTime: '300',
   loadingText: 'loading',
 }
 
@@ -27,8 +26,9 @@ class Loadingstate extends Component{
 		super(props);
 		this.state = {
 			clickFlag: false,
+			loadingText: this.props.children
 		}
-		this.handleClick = this.handleClick.bind(this);
+		//this.handleClick = this.handleClick.bind(this);
 	}
 	handleClick (){
 		this.setState({clickFlag: true,loadingText:this.props.loadingText});
@@ -42,7 +42,7 @@ class Loadingstate extends Component{
         return (
         	<Button
         		 disabled={this.state.clickFlag}
-        		 onClick={this.handleClick}
+        		 onClick={this.handleClick.bind(this)}
         		 {...others}>
         		{this.state.loadingText}
         	</Button>

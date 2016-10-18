@@ -1,22 +1,22 @@
 {
-  "name": "bee-loadingstate",
+  "name": "bee-loading-state",
   "version": "0.0.2",
-  "description": "loadingstate ui component for react",
+  "description": "loading-state ui component for react",
   "keywords": [
     "react",
     "react-component",
-    "react-loadingstate",
+    "react-loading-state",
     "iuap-design",
     "neoui-react",
-    "loadingstate"
+    "loading-state"
   ],
   "engines": {
     "node": ">=4.0.0"
   },
-  "homepage": "https://github.com/tinper-bee/loadingstate",
+  "homepage": "https://github.com/tinper-bee/loading-state",
   "author": "yonyou",
-  "repository": "http://github.com/tinper-bee/loadingstate",
-  "bugs": "https://github.com/tinper-bee/loadingstate/issues",
+  "repository": "http://github.com/tinper-bee/loading-state",
+  "bugs": "https://github.com/tinper-bee/loading-state/issues",
   "license": "MIT",
   "main": "./build/index",
   "config": {
