@@ -28,7 +28,7 @@ npm install --save bee-loading-state
 ```
 组件调用
 ```js
-import { Loadingstate } from 'bee-Loading-state';
+import Loadingstate from 'bee-Loading-state';
 React.render(<div>
     <div>
         <Loadingstate loadingTime="4000" loadingText="loading...">Confirm</Loadingstate>
