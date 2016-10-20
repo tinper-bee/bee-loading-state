@@ -1,4 +1,4 @@
-import { Loadingstate } from '../src';
+import Loadingstate from '../src';
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 

@@ -1,2 +1,3 @@
+import Loadingstate from './Loadingstate';
+export default Loadingstate;
 
-export Loadingstate from './Loadingstate';
