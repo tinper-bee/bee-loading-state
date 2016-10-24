@@ -1,6 +1,7 @@
 # bee-loading-state
 [![npm version](https://img.shields.io/npm/v/bee-loading-state.svg)](https://www.npmjs.com/package/bee-loading-state)
 [![Build Status](https://img.shields.io/travis/tinper-bee/bee-loading-state/master.svg)](https://travis-ci.org/tinper-bee/bee-loading-state)
+[![Coverage Status](https://coveralls.io/repos/github/tinper-bee/bee-loading-state/badge.svg?branch=master)](https://coveralls.io/github/tinper-bee/bee-loading-state?branch=master)
 [![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-loading-state.svg)](https://david-dm.org/tinper-bee/bee-loading-state#info=devDependencies)
 
 
