@@ -17,9 +17,8 @@ const propTypes = {
 const defaultProps = {
   loadingTime: '300',
   loadingText: 'loading',
-}
 
-const clsPrefix = 'u-button';
+}
 
 class Loadingstate extends Component{
 	constructor(props){

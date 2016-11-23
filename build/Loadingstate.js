@@ -45,9 +45,8 @@ var propTypes = {
 var defaultProps = {
 	loadingTime: '300',
 	loadingText: 'loading'
-};
 
-var clsPrefix = 'u-button';
+};
 
 var Loadingstate = function (_Component) {
 	_inherits(Loadingstate, _Component);
@@ -109,18 +108,4 @@ Loadingstate.propTypes = propTypes;
 Loadingstate.defaultProps = defaultProps;
 
 exports["default"] = Loadingstate;
-module.exports = exports['default'];
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Loadingstate = require('./Loadingstate');
-
-var _Loadingstate2 = _interopRequireDefault(_Loadingstate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-exports["default"] = _Loadingstate2["default"];
 module.exports = exports['default'];
