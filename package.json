@@ -33,9 +33,9 @@
   "coveralls": "bee-tools run coverage"
  },
  "dependencies": {
-  "bee-button": "0.0.6",
+  "bee-button": "latest",
   "classnames": "^2.2.5",
-  "tinper-bee-core": "0.0.6"
+  "tinper-bee-core": "latest"
  },
  "devDependencies": {
   "chai": "^3.5.0",
