@@ -85,11 +85,10 @@ var Loadingstate = function (_Component) {
 	};
 
 	Loadingstate.prototype.render = function render() {
-		var _props = this.props;
-		var loadingTime = _props.loadingTime;
-		var loadingText = _props.loadingText;
-
-		var others = _objectWithoutProperties(_props, ['loadingTime', 'loadingText']);
+		var _props = this.props,
+		    loadingTime = _props.loadingTime,
+		    loadingText = _props.loadingText,
+		    others = _objectWithoutProperties(_props, ['loadingTime', 'loadingText']);
 
 		return _react2["default"].createElement(
 			_beeButton2["default"],
