@@ -32,7 +32,7 @@ class Demo2 extends Component {
 			<Loadingstate colors="info" loadingText="waiting..." loadingTime="4000">confirm</Loadingstate>
 		)
 	}
-}var DemoArray = [{"example":<Demo1 />,"title":" 基础Loadingstate","code":"/**\n * @title 基础Loadingstate\n * @description  点击按钮，呈现等待。\n */\nclass Demo1 extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<Loadingstate>confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":"  点击按钮，呈现等待。"},{"example":<Demo2 />,"title":" 自定义`Loadingstate`","code":"/**\n * @title 自定义`Loadingstate`\n * @description `loadingText`自定义等待文字，`loadingTime`自定义等待时间.\n */\nclass Demo2 extends Component {\n\trender(){\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingText=\"waiting...\" loadingTime=\"4000\">confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":" `loadingText`自定义等待文字，`loading"}]
+}var DemoArray = [{"example":<Demo1 />,"title":" 基础Loadingstate","code":"/**\n * @title 基础Loadingstate\n * @description  点击按钮，呈现等待。\n */\nclass Demo1 extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<Loadingstate>confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":"  点击按钮，呈现等待。"},{"example":<Demo2 />,"title":" 自定义`Loadingstate`","code":"/**\n * @title 自定义`Loadingstate`\n * @description `loadingText`自定义等待文字，`loadingTime`自定义等待时间.\n */\nclass Demo2 extends Component {\n\trender(){\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingText=\"waiting...\" loadingTime=\"4000\">confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":" `loadingText`自定义等待文字，`loadingTime`自定义等待时间."}]
 
 
 class Demo extends Component {
@@ -58,23 +58,11 @@ class Demo extends Component {
                 { text }
             </Button>
         );
-        const header = (
-            <Row>
-                <Col md={11}>
-                { example }
-                </Col>
-                <Col md={1}>
-                <Button shape="icon" onClick={ this.handleClick }>
-                    { caret }
-                </Button>
-                </Col>
-            </Row>
-        );
         return (
-            <Col md={10} mdOffset={1} sm={12} smOffset={0}>
+            <Col md={12}>
                 <h3>{ title }</h3>
                 <p>{ desc }</p>
-                <Panel collapsible expanded={ this.state.open } colors='bordered' header={ header } footer={footer} footerStyle = {{padding: 0}}>
+                <Panel collapsible expanded={ this.state.open } colors='bordered' header={ example } footer={footer} footerStyle = {{padding: 0,borderColor: "transparent"}} >
                     <pre><code className="hljs javascript">{ code }</code></pre>
                 </Panel>
             </Col>
