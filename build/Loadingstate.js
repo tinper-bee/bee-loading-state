@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -17,6 +19,10 @@ var _classnames2 = _interopRequireDefault(_classnames);
 var _beeButton = require('bee-button');
 
 var _beeButton2 = _interopRequireDefault(_beeButton);
+
+var _beeLoading = require('bee-loading');
+
+var _beeLoading2 = _interopRequireDefault(_beeLoading);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -34,17 +40,20 @@ var propTypes = {
 	/**
   * @title loading时间
   */
-	loadingTime: _react.PropTypes.string,
+	loadingTime: _react.PropTypes.number,
 	/**
   * @title loading时的文字
   */
-	loadingText: _react.PropTypes.string
+	loadingText: _react.PropTypes.string,
+	/**
+  * @title 
+  */
+	children: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.node])
 
 };
 
 var defaultProps = {
-	loadingTime: '300',
-	loadingText: 'loading'
+	loadingTime: '300'
 
 };
 
@@ -88,15 +97,54 @@ var Loadingstate = function (_Component) {
 		var _props = this.props,
 		    loadingTime = _props.loadingTime,
 		    loadingText = _props.loadingText,
-		    others = _objectWithoutProperties(_props, ['loadingTime', 'loadingText']);
+		    children = _props.children,
+		    others = _objectWithoutProperties(_props, ['loadingTime', 'loadingText', 'children']);
+
+		console.log(typeof loadingText === 'undefined' ? 'undefined' : _typeof(loadingText));
+
+		var loadingTextTypeString = typeof loadingText === 'string';
 
 		return _react2["default"].createElement(
-			_beeButton2["default"],
-			_extends({
-				disabled: this.state.clickFlag,
-				onClick: this.handleClick.bind(this)
-			}, others),
-			this.state.loadingText
+			'span',
+			null,
+			loadingTextTypeString && loadingText && _react2["default"].createElement(
+				_beeButton2["default"],
+				_extends({
+					className: 'ladda-button',
+					disabled: this.state.clickFlag,
+					onClick: this.handleClick.bind(this)
+				}, others),
+				_react2["default"].createElement(
+					'span',
+					{ className: 'ladda-label' },
+					children
+				),
+				_react2["default"].createElement(
+					'span',
+					{ className: 'ladda-text' },
+					' ',
+					loadingText,
+					' '
+				)
+			),
+			!loadingText && _react2["default"].createElement(
+				_beeButton2["default"],
+				_extends({
+					className: 'ladda-button',
+					disabled: this.state.clickFlag,
+					onClick: this.handleClick.bind(this)
+				}, others),
+				_react2["default"].createElement(
+					'span',
+					{ className: 'ladda-label' },
+					children
+				),
+				_react2["default"].createElement(
+					'span',
+					{ className: 'ladda-spinner' },
+					_react2["default"].createElement(_beeLoading2["default"], null)
+				)
+			)
 		);
 	};
 
