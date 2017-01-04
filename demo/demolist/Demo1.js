@@ -5,7 +5,7 @@
 class Demo1 extends Component {
 	render () {
 		return (
-			<Loadingstate>confirm</Loadingstate>
+			<Loadingstate colors="info" loadingTime={4000}>confirm</Loadingstate>
 		)
 	}
 }

@@ -5,11 +5,11 @@ import Button from 'bee-button';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Loadingstate from '../src';
+import Icon from 'bee-icon';
 
+const CARET = <i className="uf uf-arrow-down"></i>;
 
-const CARET = <i className="uf uf-chevronarrowdown"></i>;
-
-const CARETUP = <i className="uf uf-chevronarrowup"></i>;
+const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 
 {demolist}

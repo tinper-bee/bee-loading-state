@@ -1,1 +1,73 @@
 @import "../node_modules/bee-button/src/Button.scss";
+@import "../node_modules/bee-loading/src/Loading.scss";
+
+
+.ladda-button, .ladda-button .ladda-spinner, .ladda-button .ladda-label {
+    -webkit-transition: 0.3s ease all !important;
+    -moz-transition: 0.3s ease all !important;
+    -ms-transition: 0.3s ease all !important;
+    -o-transition: 0.3s ease all !important;
+    transition: 0.3s ease all !important;
+}
+
+.ladda-button[disabled] .ladda-label {
+
+    opacity: 0;
+    left: 100%;
+    -webkit-transform: scale(2.2);
+    -o-transform: scale(2.2);
+    -ms-transform: scale(2.2);
+    -moz-transform: scale(2.2);
+    transform: scale(2.2);
+}
+.ladda-button[disabled] .ladda-spinner {
+    opacity: 1;
+    margin-left: -15%;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    -moz-transform: none;
+    transform: none;
+}
+
+.ladda-button[disabled] .ladda-text {
+    opacity: 1;
+    left: 12%;
+    
+}
+.ladda-button .ladda-spinner {
+	position: absolute;
+    z-index: 2;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    top: 12%;
+    opacity: 0;
+    pointer-events: none;
+	left: 50%;
+    margin-left: -16px;
+    -webkit-transform: scale(0.2);
+    -moz-transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.2);
+    transform: scale(0.2);
+}
+.ladda-button .ladda-text{
+	position: absolute;
+    z-index: 2;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    top: 5px;
+    margin-top: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.ladda-button .ladda-label {
+    position: relative;
+    display: inline-block;
+}
+.ladda-spinner .u-loading.u-loading-rotate > div{
+	width: 24px;
+	height: 24px;
+}

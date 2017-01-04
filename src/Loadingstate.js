@@ -1,22 +1,29 @@
 import React, { Component, PropTypes}from 'react';
 import classnames from 'classnames';
-import Button from 'bee-button'
+import Button from 'bee-button';
+import Loading from 'bee-loading';
 
 const propTypes = {
 	/**
 	 * @title loading时间
 	 */
-	loadingTime: PropTypes.string,
+	loadingTime: PropTypes.number,
 	/**
 	 * @title loading时的文字
 	 */
 	loadingText: PropTypes.string,
+	/**
+	 * @title 
+	 */
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.node
+	])
 	
 }
 
 const defaultProps = {
-  loadingTime: '300',
-  loadingText: 'loading',
+  loadingTime: '300'
 
 }
 
@@ -46,14 +53,33 @@ class Loadingstate extends Component{
 		clearInterval(this.timer);
 	}
 	render(){
-		let {loadingTime,loadingText, ...others} = this.props;
+		let {loadingTime,loadingText,children, ...others} = this.props;
+		
+		console.log(typeof(loadingText));
+
+		let loadingTextTypeString = typeof(loadingText)==='string';
+
         return (
-        	<Button
-        		 disabled={this.state.clickFlag}
-        		 onClick={this.handleClick.bind(this)}
-        		 {...others}>
-        		{this.state.loadingText}
-        	</Button>
+        	<span>
+        	{loadingTextTypeString&&loadingText && (
+        		<Button
+	        		className = "ladda-button"
+	        		disabled={this.state.clickFlag}
+	        		onClick={this.handleClick.bind(this)}
+	        		 {...others}>
+	        		<span className="ladda-label">{children}</span><span className="ladda-text"> {loadingText} </span>
+	        	</Button>
+        	)}
+        	{!loadingText && (
+        		<Button
+	        		className = "ladda-button"
+	        		disabled={this.state.clickFlag}
+	        		onClick={this.handleClick.bind(this)}
+	        		 {...others}>
+	        		<span className="ladda-label">{children}</span><span className="ladda-spinner"><Loading /></span>
+	        	</Button>
+        	)}
+        	</span>
         );
 
 	}
