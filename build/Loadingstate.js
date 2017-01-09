@@ -81,7 +81,7 @@ var Loadingstate = function (_Component) {
 		/**
    * 设置定时器 根据参数时间 设定定时时间 而去改变状态
    */
-		this.timer = setInterval(function () {
+		this.timer = setTimeout(function () {
 			this.setState({ clickFlag: false, loadingText: this.props.children });
 		}.bind(this), this.props.loadingTime);
 	};
