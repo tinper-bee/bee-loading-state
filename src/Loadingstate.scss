@@ -1,3 +1,5 @@
+@import "../node_modules/tinper-bee-core/scss/minxin-variables";
+@import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 @import "../node_modules/bee-button/src/Button.scss";
 @import "../node_modules/bee-loading/src/Loading.scss";
 
@@ -22,7 +24,8 @@
 }
 .ladda-button[disabled] .ladda-spinner {
     opacity: 1;
-    margin-left: -15%;
+    margin-left: 0;
+    transform: none;
     -webkit-transform: none;
     -o-transform: none;
     -ms-transform: none;
@@ -35,6 +38,11 @@
     left: 12%;
     
 }
+.ladda-button .ladda-spinner>div{
+    vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+}
 .ladda-button .ladda-spinner {
 	position: absolute;
     z-index: 2;
@@ -44,8 +52,12 @@
     top: 12%;
     opacity: 0;
     pointer-events: none;
-	left: 50%;
     margin-left: -16px;
+    transform: scale(0.2);
+    width: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+    left: -12px;
     -webkit-transform: scale(0.2);
     -moz-transform: scale(0.2);
     -ms-transform: scale(0.2);
