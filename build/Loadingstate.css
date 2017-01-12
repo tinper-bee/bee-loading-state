@@ -1204,7 +1204,7 @@ button.u-close {
 .ladda-button .ladda-spinner > div {
   vertical-align: middle;
   display: inline-block;
-  position: absolute; }
+  position: relative; }
 
 .ladda-button .ladda-spinner {
   position: absolute;
@@ -1220,7 +1220,7 @@ button.u-close {
   width: 100%;
   margin: 0 auto;
   vertical-align: middle;
-  left: -12px;
+  left: 0;
   -webkit-transform: scale(0.2);
   -moz-transform: scale(0.2);
   -ms-transform: scale(0.2);
