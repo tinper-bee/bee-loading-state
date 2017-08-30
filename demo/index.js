@@ -4,35 +4,13 @@ import { Panel } from 'bee-panel';
 import Button from 'bee-button';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Loadingstate from '../src';
-import Icon from 'bee-icon';
 
 const CARET = <i className="uf uf-arrow-down"></i>;
 
 const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 
-/**
- * @title 基础Loadingstate
- * @description  点击按钮，呈现等待。
- */
-class Demo1 extends Component {
-	render () {
-		return (
-			<Loadingstate colors="info" loadingTime={4000}>confirm</Loadingstate>
-		)
-	}
-}/**
- * @title 自定义`Loadingstate`
- * @description `loadingText`自定义等待文字，`loadingTime`自定义等待时间.
- */
-class Demo2 extends Component {
-	render(){
-		return (
-			<Loadingstate colors="info" loadingText="waiting..." loadingTime={3000}>confirm</Loadingstate>
-		)
-	}
-}var DemoArray = [{"example":<Demo1 />,"title":" 基础Loadingstate","code":"/**\n * @title 基础Loadingstate\n * @description  点击按钮，呈现等待。\n */\nclass Demo1 extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingTime={4000}>confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":"  点击按钮，呈现等待。"},{"example":<Demo2 />,"title":" 自定义`Loadingstate`","code":"/**\n * @title 自定义`Loadingstate`\n * @description `loadingText`自定义等待文字，`loadingTime`自定义等待时间.\n */\nclass Demo2 extends Component {\n\trender(){\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingText=\"waiting...\" loadingTime={3000}>confirm</Loadingstate>\n\t\t)\n\t}\n}","desc":" `loadingText`自定义等待文字，`loadingTime`自定义等待时间."}]
+var Demo1 = require("./demolist/Demo1");var Demo2 = require("./demolist/Demo2");var DemoArray = [{"example":<Demo1 />,"title":" 基础Loadingstate","code":"/**\n * @title 基础Loadingstate\n * @description  点击按钮，呈现等待。\n */\n\nimport React, { Component } from 'react';\nimport Loadingstate from 'tinper-bee';\n\n\nclass Demo1 extends Component {\n\trender () {\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingTime={4000}>confirm</Loadingstate>\n\t\t)\n\t}\n}\n\n\n\n","desc":"  点击按钮，呈现等待。"},{"example":<Demo2 />,"title":" 自定义`Loadingstate`","code":"/**\n * @title 自定义`Loadingstate`\n * @description `loadingText`自定义等待文字，`loadingTime`自定义等待时间.\n */\n\n\nimport React, { Component } from 'react';\nimport Loadingstate from 'tinper-bee';\n\nclass Demo2 extends Component {\n\trender(){\n\t\treturn (\n\t\t\t<Loadingstate colors=\"info\" loadingText=\"waiting...\" loadingTime={3000}>confirm</Loadingstate>\n\t\t)\n\t}\n}\n\n","desc":" `loadingText`自定义等待文字，`loadingTime`自定义等待时间."}]
 
 
 class Demo extends Component {

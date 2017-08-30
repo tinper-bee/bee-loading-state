@@ -2,6 +2,11 @@
  * @title 基础Loadingstate
  * @description  点击按钮，呈现等待。
  */
+
+import React, { Component } from 'react';
+import Loadingstate from '../../src';
+
+
 class Demo1 extends Component {
 	render () {
 		return (
@@ -9,3 +14,7 @@ class Demo1 extends Component {
 		)
 	}
 }
+
+
+
+export default Demo1;
