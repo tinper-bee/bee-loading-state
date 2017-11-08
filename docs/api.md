@@ -10,7 +10,11 @@
 |:--|:---|:--|:---|
 |className|类名|string|-|
 |loadingText|自定义loading时显示文字内容|string|loading|
-|loadingTime|loading的时间|number|300ms|
+|show|是否显示loading|boolean|false|
+|showBackDrop|是否显示loading时给button显示遮罩层|boolean|true|
+
+可以使用其他Button组件的props，来设置LoadingState组件中按钮的props。
+
 
 
 

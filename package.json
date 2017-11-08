@@ -1,6 +1,6 @@
 {
  "name": "bee-loading-state",
- "version": "0.2.1",
+ "version": "1.0.0",
  "description": "bee-loading-state ui component for react",
  "keywords": [
   "react",
@@ -25,31 +25,35 @@
  "scripts": {
   "dev": "bee-tools run start",
   "build": "bee-tools run build",
-  "lint": "bee-tools run lint",
-  "test": "bee-tools run test",
-  "chrome": "bee-tools run chrome",
-  "browsers": "bee-tools run browsers",
+  "lint": "bee-tools-test run lint",
+  "test": "bee-tools-test run test",
+  "chrome": "bee-tools-test run chrome",
+  "browsers": "bee-tools-test run browsers",
   "pub": "bee-tools run pub",
-  "coveralls": "bee-tools run coverage"
+  "coveralls": "bee-tools-test run coverage"
  },
  "dependencies": {
-  "bee-button": "^0.2.2",
-  "bee-icon": "0.0.5",
-  "bee-loading": "0.0.3",
-  "bee-modal": "0.0.9",
-  "classnames": "^2.2.5",
   "babel-runtime": "^6.23.0",
+  "bee-button": "^1.0.0",
+  "bee-loading": "^1.0.2",
+  "classnames": "^2.2.5",
   "tinper-bee-core": "latest"
+ },
+ "peerDependencies": {
+  "react": ">= 15.3.0",
+  "react-dom": ">= 15.3.0",
+  "prop-types": ">= 15.6.0"
  },
  "devDependencies": {
   "chai": "^3.5.0",
   "enzyme": "^2.4.1",
-  "react": "~0.14.0",
+  "react": "15.3.2",
   "react-addons-test-utils": "15.3.2",
-  "react-dom": "~0.14.0",
+  "react-dom": "15.3.2",
   "console-polyfill": "~0.2.1",
   "es5-shim": "~4.1.10",
-  "bee-panel": "latest",
-  "bee-layout": "latest"
+  "bee-panel": "^1.0.0",
+  "bee-layout": "^1.0.0",
+  "bee-icon": "^1.0.0"
  }
 }

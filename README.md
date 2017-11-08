@@ -28,7 +28,7 @@ npm install --save bee-loading-state
 ```
 组件调用
 ```js
-import Loadingstate from 'bee-Loading-state';
+import Loadingstate from 'bee-loading-state';
 React.render(<div>
     <div>
         <Loadingstate loadingTime="4000" loadingText="loading...">Confirm</Loadingstate>
@@ -36,15 +36,14 @@ React.render(<div>
 </div>, document.getElementById('target'));
 ```
 #### 样式引入
-- 因为loading-state是依赖于button,所以使用link引入dist目录下button.css
+- 使用link引入build目录下Loadingstate.css
 ```
-<link rel="stylesheet" href="./node_modules/build/bee-button.css">
+<link rel="stylesheet" href="./node_modules/build/Loadingstate.css">
 ```
-- 同理,在js中import样式也是button的样式
+- 同理,在js中import样式也是loadingstate的样式
 ```js
-import "./node_modules/src/Button.scss"
-//或是
-import "./node_modules/build/bee-button.css"
+
+import "bee-loading-state/build/Loadingstate.css"
 ```
 
 ### 使用tinper-bee组件库
@@ -55,11 +54,15 @@ import "./node_modules/build/bee-button.css"
 
 ## API
 
-button的参数在loading-state同样适用，
+button的参数在loading-state同样适用，可以使用其他Button组件的props，来设置LoadingState组件中按钮的props。
 loading-state扩展的参数如下。
 
 
 |参数|说明|类型|默认值|
-|---|----|---|------|
-|loadingText|loading时显示内容|string|loading|
-|loadingTime|loading的时间|number|300ms|
+|:--|:---|:--|:---|
+|className|类名|string|-|
+|loadingText|自定义loading时显示文字内容|string|loading|
+|show|是否显示loading|boolean|false|
+|showBackDrop|是否显示loading时给button显示遮罩层|boolean|true|
+
+

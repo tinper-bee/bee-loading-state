@@ -1,20 +1,14 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _classnames = require('classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
 
 var _beeButton = require('bee-button');
 
@@ -24,9 +18,19 @@ var _beeLoading = require('bee-loading');
 
 var _beeLoading2 = _interopRequireDefault(_beeLoading);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames2 = require('classnames');
+
+var _classnames3 = _interopRequireDefault(_classnames2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -37,119 +41,75 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var propTypes = {
-	/**
-  * @title loading时间
-  */
-	loadingTime: _react.PropTypes.number,
-	/**
-  * @title loading时的文字
-  */
-	loadingText: _react.PropTypes.string,
-	/**
-  * @title 
-  */
-	children: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.node])
+    /**
+     * @title loading时的文字
+     */
+    loadingText: _propTypes2["default"].string,
+    /**
+     * @title
+     */
+    children: _propTypes2["default"].oneOfType([_propTypes2["default"].string, _propTypes2["default"].node]),
+    show: _propTypes2["default"].bool,
+    showBackDrop: _propTypes2["default"].bool
 
 };
 
 var defaultProps = {
-	loadingTime: '300'
-
+    show: false,
+    clsPrefix: 'u-loading-state',
+    loadingText: '',
+    showBackDrop: true
 };
 
-var Loadingstate = function (_Component) {
-	_inherits(Loadingstate, _Component);
+var Loadingstate = function (_React$Component) {
+    _inherits(Loadingstate, _React$Component);
 
-	function Loadingstate(props) {
-		_classCallCheck(this, Loadingstate);
+    function Loadingstate(props) {
+        _classCallCheck(this, Loadingstate);
 
-		var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 
-		_this.state = {
-			clickFlag: false,
-			loadingText: _this.props.children
-		};
-		return _this;
-	}
-	/**
-  * 手动触发修改状态
-  */
+        _this.state = {
+            clickFlag: false,
+            loadingText: _this.props.children
+        };
+        return _this;
+    }
 
+    Loadingstate.prototype.render = function render() {
+        var _props = this.props,
+            className = _props.className,
+            clsPrefix = _props.clsPrefix,
+            children = _props.children,
+            show = _props.show,
+            loadingText = _props.loadingText,
+            showBackDrop = _props.showBackDrop,
+            others = _objectWithoutProperties(_props, ['className', 'clsPrefix', 'children', 'show', 'loadingText', 'showBackDrop']);
 
-	Loadingstate.prototype.handleClick = function handleClick() {
-		this.setState({ clickFlag: true, loadingText: this.props.loadingText });
-		/**
-   * 设置定时器 根据参数时间 设定定时时间 而去改变状态
-   */
-		this.timer = setTimeout(function () {
-			this.setState({ clickFlag: false, loadingText: this.props.children });
-		}.bind(this), this.props.loadingTime);
-	};
-	// 组件移除
+        var labelClass = (0, _classnames3["default"])(_defineProperty({}, clsPrefix + '-label', show));
+        var loadingStateClass = (0, _classnames3["default"])(clsPrefix, className);
 
+        return _react2["default"].createElement(
+            _beeButton2["default"],
+            _extends({
+                className: loadingStateClass,
+                disabled: show
+            }, others),
+            _react2["default"].createElement(
+                _beeLoading2["default"],
+                { show: show, container: this, showBackDrop: showBackDrop },
+                loadingText
+            ),
+            _react2["default"].createElement(
+                'div',
+                { className: labelClass },
+                children
+            )
+        );
+    };
 
-	Loadingstate.prototype.componentWillUnmount = function componentWillUnmount() {
-
-		clearInterval(this.timer);
-	};
-
-	Loadingstate.prototype.render = function render() {
-		var _props = this.props,
-		    loadingTime = _props.loadingTime,
-		    loadingText = _props.loadingText,
-		    children = _props.children,
-		    others = _objectWithoutProperties(_props, ['loadingTime', 'loadingText', 'children']);
-
-		console.log(typeof loadingText === 'undefined' ? 'undefined' : _typeof(loadingText));
-
-		var loadingTextTypeString = typeof loadingText === 'string';
-
-		return _react2["default"].createElement(
-			'span',
-			null,
-			loadingTextTypeString && loadingText && _react2["default"].createElement(
-				_beeButton2["default"],
-				_extends({
-					className: 'ladda-button',
-					disabled: this.state.clickFlag,
-					onClick: this.handleClick.bind(this)
-				}, others),
-				_react2["default"].createElement(
-					'span',
-					{ className: 'ladda-label' },
-					children
-				),
-				_react2["default"].createElement(
-					'span',
-					{ className: 'ladda-text' },
-					' ',
-					loadingText,
-					' '
-				)
-			),
-			!loadingText && _react2["default"].createElement(
-				_beeButton2["default"],
-				_extends({
-					className: 'ladda-button',
-					disabled: this.state.clickFlag,
-					onClick: this.handleClick.bind(this)
-				}, others),
-				_react2["default"].createElement(
-					'span',
-					{ className: 'ladda-label' },
-					children
-				),
-				_react2["default"].createElement(
-					'span',
-					{ className: 'ladda-spinner' },
-					_react2["default"].createElement(_beeLoading2["default"], null)
-				)
-			)
-		);
-	};
-
-	return Loadingstate;
-}(_react.Component);
+    return Loadingstate;
+}(_react2["default"].Component);
 
 Loadingstate.propTypes = propTypes;
 Loadingstate.defaultProps = defaultProps;
