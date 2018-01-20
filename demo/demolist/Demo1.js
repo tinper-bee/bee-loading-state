@@ -29,7 +29,13 @@ class Demo1 extends Component {
 
 	render () {
 		return (
-			<Loadingstate showBackDrop={false} onClick={ this.handleClick } show={ this.state.show } colors="info">confirm</Loadingstate>
+			<Loadingstate
+				showBackDrop={false}
+				onClick={ this.handleClick }
+				show={ this.state.show }
+				colors="info">
+				confirm
+			</Loadingstate>
 		)
 	}
 }
