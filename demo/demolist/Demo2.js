@@ -29,7 +29,7 @@ class Demo2 extends Component {
 		return (
 			<Loadingstate
 				onClick={ this.handleClick }
-				colors="info"
+				colors="primary"
 				show={ this.state.show }
 				loadingText="waiting...">
 				confirm

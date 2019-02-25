@@ -58,7 +58,7 @@ var defaultProps = {
     show: false,
     clsPrefix: 'u-loading-state',
     loadingText: '',
-    showBackDrop: true
+    showBackDrop: false
 };
 
 var Loadingstate = function (_React$Component) {
@@ -95,15 +95,11 @@ var Loadingstate = function (_React$Component) {
                 className: loadingStateClass,
                 disabled: show
             }, others),
-            _react2["default"].createElement(
-                _beeLoading2["default"],
-                { show: show, container: this, showBackDrop: showBackDrop },
-                loadingText
-            ),
+            _react2["default"].createElement(_beeLoading2["default"], { show: show, container: this, showBackDrop: showBackDrop }),
             _react2["default"].createElement(
                 'div',
                 { className: labelClass },
-                children
+                show && loadingText ? loadingText : children
             )
         );
     };

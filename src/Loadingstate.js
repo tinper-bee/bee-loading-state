@@ -25,7 +25,7 @@ const defaultProps = {
     show: false,
     clsPrefix: 'u-loading-state',
     loadingText: '',
-    showBackDrop: true
+    showBackDrop: false
 }
 
 class Loadingstate extends React.Component {
@@ -49,9 +49,9 @@ class Loadingstate extends React.Component {
                 disabled={show}
                 {...others}>
                 <Loading show={show} container={ this } showBackDrop={ showBackDrop }>
-                    { loadingText }
+                    {/* { loadingText } */}
                 </Loading>
-                <div className={labelClass}>{children}</div>
+                <div className={labelClass}>{show && loadingText ? loadingText : children}</div>
             </Button>
         )
 

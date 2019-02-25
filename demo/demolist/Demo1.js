@@ -33,7 +33,7 @@ class Demo1 extends Component {
 				showBackDrop={false}
 				onClick={ this.handleClick }
 				show={ this.state.show }
-				colors="info">
+				colors="primary">
 				confirm
 			</Loadingstate>
 		)
