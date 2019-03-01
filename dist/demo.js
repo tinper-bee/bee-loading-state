@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(93);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础Loadingstate", "code": "/**\r\n * @title 基础Loadingstate\r\n * @description  点击按钮，呈现等待。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Loadingstate } from 'tinper-bee';\r\n\r\n\r\nclass Demo1 extends Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n            show: false\r\n\t\t}\r\n\t}\r\n\r\n\thandleClick = () => {\r\n\t\tthis.setState({\r\n\t\t\tshow: true\r\n\t\t});\r\n\r\n\t\tsetTimeout(() => {\r\n            this.setState({\r\n                show: false\r\n            })\r\n\t\t}, 3000)\r\n\t}\r\n\r\n\trender () {\r\n\t\treturn (\r\n\t\t\t<Loadingstate\r\n\t\t\t\tshowBackDrop={false}\r\n\t\t\t\tonClick={ this.handleClick }\r\n\t\t\t\tshow={ this.state.show }\r\n\t\t\t\tcolors=\"primary\">\r\n\t\t\t\tconfirm\r\n\t\t\t</Loadingstate>\r\n\t\t)\r\n\t}\r\n}\r\n\r\n\r\n\r\n", "desc": "  点击按钮，呈现等待。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 自定义`Loadingstate`", "code": "/**\r\n * @title 自定义`Loadingstate`\r\n * @description `loadingText`自定义等待文字.\r\n */\r\n\r\n\r\nimport React, { Component } from 'react';\r\nimport { Loadingstate } from 'tinper-bee';\r\n\r\nclass Demo2 extends Component {\r\n\tconstructor(props){\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tshow: false\r\n\t\t}\r\n\t}\r\n\r\n    handleClick = () => {\r\n        this.setState({\r\n            show: true\r\n        })\r\n        setTimeout(() => {\r\n            this.setState({\r\n                show: false\r\n            })\r\n        }, 3000)\r\n    }\r\n\trender(){\r\n\t\treturn (\r\n\t\t\t<Loadingstate\r\n\t\t\t\tonClick={ this.handleClick }\r\n\t\t\t\tcolors=\"primary\"\r\n\t\t\t\tshow={ this.state.show }\r\n\t\t\t\tloadingText=\"waiting...\">\r\n\t\t\t\tconfirm\r\n\t\t\t</Loadingstate>\r\n\t\t)\r\n\t}\r\n}\r\n\r\n", "desc": " `loadingText`自定义等待文字." }];
+	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(93);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础Loadingstate", "code": "/**\r\n * @title 基础Loadingstate\r\n * @description  点击按钮，呈现等待。\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport { Loadingstate } from 'tinper-bee';\r\n\r\n\r\nclass Demo1 extends Component {\r\n\tconstructor(props) {\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n            show: false\r\n\t\t}\r\n\t}\r\n\r\n\thandleClick = () => {\r\n\t\tthis.setState({\r\n\t\t\tshow: true\r\n\t\t});\r\n\r\n\t\tsetTimeout(() => {\r\n            this.setState({\r\n                show: false\r\n            })\r\n\t\t}, 3000)\r\n\t}\r\n\r\n\trender () {\r\n\t\treturn (\r\n\t\t\t<Loadingstate\r\n\t\t\t\tshowBackDrop={false}\r\n\t\t\t\tonClick={ this.handleClick }\r\n\t\t\t\tshow={ this.state.show }\r\n\t\t\t\tcolors=\"dark\">\r\n\t\t\t\tconfirm\r\n\t\t\t</Loadingstate>\r\n\t\t)\r\n\t}\r\n}\r\n\r\n\r\n\r\n", "desc": "  点击按钮，呈现等待。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 自定义`Loadingstate`", "code": "/**\r\n * @title 自定义`Loadingstate`\r\n * @description `loadingText`自定义等待文字.\r\n */\r\n\r\n\r\nimport React, { Component } from 'react';\r\nimport { Loadingstate } from 'tinper-bee';\r\n\r\nclass Demo2 extends Component {\r\n\tconstructor(props){\r\n\t\tsuper(props);\r\n\t\tthis.state = {\r\n\t\t\tshow: false\r\n\t\t}\r\n\t}\r\n\r\n    handleClick = () => {\r\n        this.setState({\r\n            show: true\r\n        })\r\n        setTimeout(() => {\r\n            this.setState({\r\n                show: false\r\n            })\r\n        }, 3000)\r\n    }\r\n\trender(){\r\n\t\treturn (\r\n\t\t\t<Loadingstate\r\n\t\t\t\tonClick={ this.handleClick }\r\n\t\t\t\tcolors=\"dark\"\r\n\t\t\t\tshow={ this.state.show }\r\n\t\t\t\tloadingText=\"waiting...\">\r\n\t\t\t\tconfirm\r\n\t\t\t</Loadingstate>\r\n\t\t)\r\n\t}\r\n}\r\n\r\n", "desc": " `loadingText`自定义等待文字." }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -2119,7 +2119,10 @@
 	  }
 	
 	  return (0, _createChainableTypeChecker2.default)(allPropTypes);
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 29 */
@@ -2139,6 +2142,10 @@
 	 */
 	
 	// Mostly taken from ReactPropTypes.
+	
+	/* This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	
 	function createChainableTypeChecker(validate) {
 	  function checkType(isRequired, props, propName, componentName, location, propFullName) {
@@ -2174,7 +2181,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2218,8 +2229,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var warned = {};
-	
+	var warned = {}; /**
+	                  * This source code is quoted from rc-util.
+	                  * homepage: https://github.com/react-component/util
+	                  */
 	function deprecated(validator, reason) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2514,7 +2527,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2551,6 +2568,10 @@
 	
 	exports.__esModule = true;
 	exports.default = isRequiredForA11y;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function isRequiredForA11y(validator) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2576,6 +2597,10 @@
 	
 	exports.__esModule = true;
 	exports.default = splitComponentProps;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function _objectEntries(obj) {
 	  var entries = [];
 	  var keys = Object.keys(obj);
@@ -2618,6 +2643,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function createChainedFunction() {
 	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
 	    funcs[_key] = arguments[_key];
@@ -2650,6 +2679,10 @@
 /* 38 */
 /***/ (function(module, exports) {
 
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	'use strict';
 	
 	/**
@@ -3179,6 +3212,10 @@
 	
 	exports.__esModule = true;
 	exports.default = contains;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function contains(root, n) {
 	  var node = n;
 	  while (node) {
@@ -3210,6 +3247,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function addEventListenerWrap(target, eventType, cb) {
 	  /* eslint camelcase: 2 */
 	  var callback = _reactDom2.default.unstable_batchedUpdates ? function run(e) {
@@ -3729,7 +3770,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _Event = __webpack_require__(46);
 	
@@ -3920,6 +3965,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	var EVENT_NAME_MAP = {
 	  transitionend: {
 	    transition: 'transitionend',
@@ -4233,7 +4282,10 @@
 	    ret.push(c);
 	  });
 	  return ret;
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 50 */
@@ -4269,7 +4321,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
 	
 	//import isWindow from './isWindow';
 	
@@ -5523,6 +5579,16 @@
 	  var viewportHeight = _utils2['default'].viewportHeight(win);
 	  var documentWidth = documentElement.scrollWidth;
 	  var documentHeight = documentElement.scrollHeight;
+	
+	  // scrollXXX on html is sync with body which means overflow: hidden on body gets wrong scrollXXX.
+	  // We should cut this ourself.
+	  var bodyStyle = getComputedStyle(body);
+	  if (bodyStyle.overflowX === 'hidden') {
+	    documentWidth = win.innerWidth;
+	  }
+	  if (bodyStyle.overflowY === 'hidden') {
+	    documentHeight = win.innerHeight;
+	  }
 	
 	  // Reset element position after calculate the visible area
 	  if (element.style) {
@@ -7799,7 +7865,7 @@
 	    /**
 	     * @title 尺寸
 	     */
-	    size: _propTypes2["default"].oneOf(['sm', 'xg', 'lg']),
+	    size: _propTypes2["default"].oneOf(['sm', 'md', 'xg', 'lg']),
 	    /**
 	     * @title 样式
 	     */
@@ -7813,7 +7879,7 @@
 	    /**
 	    * @title 类型
 	    */
-	    colors: _propTypes2["default"].oneOf(['primary', 'accent', 'success', 'info', 'warning', 'danger', 'default']),
+	    colors: _propTypes2["default"].oneOf(['primary', 'secondary', 'accent', 'success', 'info', 'warning', 'danger', 'dark', 'light', 'default']),
 	    /**
 	     * @title 是否禁用
 	     * @veIgnore
@@ -7843,16 +7909,20 @@
 	
 	var sizeMap = {
 	    sm: 'sm',
+	    md: 'md',
 	    xg: 'xg',
 	    lg: 'lg'
 	},
 	    colorsMap = {
 	    primary: 'primary',
+	    secondary: 'secondary',
 	    accent: 'accent',
 	    success: 'success',
 	    info: 'info',
 	    warning: 'warning',
-	    danger: 'danger'
+	    danger: 'danger',
+	    dark: 'dark',
+	    light: 'light'
 	},
 	    shapeMap = {
 	    block: 'block',
@@ -7988,7 +8058,7 @@
 					showBackDrop: false,
 					onClick: this.handleClick,
 					show: this.state.show,
-					colors: 'primary' },
+					colors: 'dark' },
 				'confirm'
 			);
 		};
@@ -8756,7 +8826,7 @@
 				_src2['default'],
 				{
 					onClick: this.handleClick,
-					colors: 'primary',
+					colors: 'dark',
 					show: this.state.show,
 					loadingText: 'waiting...' },
 				'confirm'
