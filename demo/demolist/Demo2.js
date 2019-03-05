@@ -1,11 +1,11 @@
 /**
- * @title 自定义`Loadingstate`
+ * @title 自定义`LoadingState`
  * @description `loadingText`自定义等待文字.
  */
 
 
 import React, { Component } from 'react';
-import Loadingstate from '../../src';
+import LoadingState from '../../src';
 
 class Demo2 extends Component {
 	constructor(props){
@@ -27,13 +27,13 @@ class Demo2 extends Component {
     }
 	render(){
 		return (
-			<Loadingstate
+			<LoadingState
 				onClick={ this.handleClick }
 				colors="dark"
 				show={ this.state.show }
 				loadingText="waiting...">
 				confirm
-			</Loadingstate>
+			</LoadingState>
 		)
 	}
 }

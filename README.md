@@ -28,22 +28,22 @@ npm install --save bee-loading-state
 ```
 组件调用
 ```js
-import Loadingstate from 'bee-loading-state';
+import LoadingState from 'bee-loading-state';
 React.render(<div>
     <div>
-        <Loadingstate loadingTime="4000" loadingText="loading...">Confirm</Loadingstate>
+        <LoadingState loadingTime="4000" loadingText="loading...">Confirm</LoadingState>
     </div>
 </div>, document.getElementById('target'));
 ```
 #### 样式引入
-- 使用link引入build目录下Loadingstate.css
+- 使用link引入build目录下LoadingState.css
 ```
-<link rel="stylesheet" href="./node_modules/build/Loadingstate.css">
+<link rel="stylesheet" href="./node_modules/build/LoadingState.css">
 ```
-- 同理,在js中import样式也是loadingstate的样式
+- 同理,在js中import样式也是LoadingState的样式
 ```js
 
-import "bee-loading-state/build/Loadingstate.css"
+import "bee-loading-state/build/LoadingState.css"
 ```
 
 ### 使用tinper-bee组件库
