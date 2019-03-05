@@ -3,7 +3,7 @@
 @import "../node_modules/bee-button/src/Button.scss";
 @import "../node_modules/bee-loading/src/Loading.scss";
 
-$loadingstate-icon-color: #fff;
+$loadingState-icon-color: #fff;
 
 .u-loading-state{
     position: relative;
@@ -16,7 +16,7 @@ $loadingstate-icon-color: #fff;
             // height: 20px;
             // margin: 0;
             & > .uf{
-                color: $loadingstate-icon-color;
+                color: $loadingState-icon-color;
                 font-size: 16px;
             }
         }

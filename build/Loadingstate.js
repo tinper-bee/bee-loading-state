@@ -61,11 +61,11 @@ var defaultProps = {
     showBackDrop: false
 };
 
-var Loadingstate = function (_React$Component) {
-    _inherits(Loadingstate, _React$Component);
+var LoadingState = function (_React$Component) {
+    _inherits(LoadingState, _React$Component);
 
-    function Loadingstate(props) {
-        _classCallCheck(this, Loadingstate);
+    function LoadingState(props) {
+        _classCallCheck(this, LoadingState);
 
         var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 
@@ -76,7 +76,7 @@ var Loadingstate = function (_React$Component) {
         return _this;
     }
 
-    Loadingstate.prototype.render = function render() {
+    LoadingState.prototype.render = function render() {
         var _props = this.props,
             className = _props.className,
             clsPrefix = _props.clsPrefix,
@@ -104,11 +104,11 @@ var Loadingstate = function (_React$Component) {
         );
     };
 
-    return Loadingstate;
+    return LoadingState;
 }(_react2["default"].Component);
 
-Loadingstate.propTypes = propTypes;
-Loadingstate.defaultProps = defaultProps;
+LoadingState.propTypes = propTypes;
+LoadingState.defaultProps = defaultProps;
 
-exports["default"] = Loadingstate;
+exports["default"] = LoadingState;
 module.exports = exports['default'];

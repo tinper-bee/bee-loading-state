@@ -28,7 +28,7 @@ const defaultProps = {
     showBackDrop: false
 }
 
-class Loadingstate extends React.Component {
+class LoadingState extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,7 +57,7 @@ class Loadingstate extends React.Component {
 
     }
 }
-Loadingstate.propTypes = propTypes;
-Loadingstate.defaultProps = defaultProps;
+LoadingState.propTypes = propTypes;
+LoadingState.defaultProps = defaultProps;
 
-export default Loadingstate;
+export default LoadingState;

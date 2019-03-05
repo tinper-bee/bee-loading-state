@@ -1,10 +1,10 @@
 /**
- * @title 基础Loadingstate
+ * @title 基础LoadingState
  * @description  点击按钮，呈现等待。
  */
 
 import React, { Component } from 'react';
-import Loadingstate from '../../src';
+import LoadingState from '../../src';
 
 
 class Demo1 extends Component {
@@ -29,13 +29,13 @@ class Demo1 extends Component {
 
 	render () {
 		return (
-			<Loadingstate
+			<LoadingState
 				showBackDrop={false}
 				onClick={ this.handleClick }
 				show={ this.state.show }
 				colors="dark">
 				confirm
-			</Loadingstate>
+			</LoadingState>
 		)
 	}
 }
