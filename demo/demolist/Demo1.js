@@ -24,7 +24,7 @@ class Demo1 extends Component {
             this.setState({
                 show: false
             })
-		}, 3000)
+		}, 100000000)
 	}
 
 	render () {
