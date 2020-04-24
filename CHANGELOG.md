@@ -1,3 +1,12 @@
+## [2.0.3](https://github.com/tinper-bee/bee-loading-state/compare/v2.0.2...v2.0.3) (2020-04-24)
+
+
+### Bug Fixes
+
+* 自动化 ([c0f06e3](https://github.com/tinper-bee/bee-loading-state/commit/c0f06e32e53ecfd37204501c099d869473bd5a17))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/tinper-bee/bee-loading-state/compare/v2.0.1...v2.0.2) (2019-06-17)
 
