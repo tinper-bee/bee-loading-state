@@ -6278,7 +6278,7 @@
 	    });
 	}
 	
-	function notice(content, duration_arg, type, onClose, position, style, keyboard, onEscapeKeyUp, showIcon) {
+	function notice(content, duration_arg, type, onClose, position, style, keyboard, onEscapeKeyUp, showIcon, icon, props) {
 	    if (positionType.findIndex(function (item) {
 	        return item === position;
 	    }) < 0) {
@@ -6306,7 +6306,7 @@
 	    var positionStyle = JSON.stringify(messageStyle_copy) == "{}" ? positionObj[position].messageStyle : messageStyle_copy;
 	    defaultStyle = _extends({}, positionStyle, style);
 	    getMessageInstance(position, function (instance) {
-	        instance.notice({
+	        instance.notice(_extends({}, props, {
 	            key: key,
 	            duration: duration,
 	            color: type,
@@ -6317,7 +6317,7 @@
 	                showIcon ? _react2["default"].createElement(
 	                    'div',
 	                    { className: clsPrefix + '-notice-description-icon' },
-	                    _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
+	                    icon ? _react2["default"].createElement('i', { className: (0, _classnames2["default"])('' + icon) }) : _react2["default"].createElement('i', { className: (0, _classnames2["default"])(iconType) })
 	                ) : null,
 	                _react2["default"].createElement(
 	                    'div',
@@ -6326,7 +6326,7 @@
 	                )
 	            ),
 	            onClose: onClose
-	        });
+	        }));
 	    }, keyboard, onEscapeKeyUp);
 	    return function () {
 	        var target = key++;
@@ -6350,8 +6350,9 @@
 	        var onClose = obj.onClose || noop;
 	        var position = obj.position || "top";
 	        var style = obj.style || {};
-	        var showIcon = obj.showIcon || true;
-	        return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon);
+	        var showIcon = obj.hasOwnProperty('showIcon') ? obj.showIcon : true;
+	        var icon = obj.hasOwnProperty('icon') ? obj.icon : false;
+	        return notice(content, duration, color, onClose, position, style, obj.keyboard, obj.onEscapeKeyUp, showIcon, icon, obj);
 	    },
 	    config: function config(options) {
 	        if (options.top !== undefined) {
@@ -7466,6 +7467,8 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -7487,6 +7490,8 @@
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -7560,7 +7565,12 @@
 	        style = _props.style,
 	        children = _props.children,
 	        color = _props.color,
-	        title = _props.title;
+	        title = _props.title,
+	        content = _props.content,
+	        onEnd = _props.onEnd,
+	        onClose = _props.onClose,
+	        duration = _props.duration,
+	        others = _objectWithoutProperties(_props, ['closable', 'clsPrefix', 'className', 'style', 'children', 'color', 'title', 'content', 'onEnd', 'onClose', 'duration']);
 	
 	    var componentClass = clsPrefix + '-notice';
 	    var classes = (_classes = {}, _defineProperty(_classes, '' + componentClass, 1), _defineProperty(_classes, componentClass + '-closable', closable), _defineProperty(_classes, className, !!className), _classes);
@@ -7569,7 +7579,7 @@
 	    }
 	    return _react2["default"].createElement(
 	      'div',
-	      { className: (0, _classnames2["default"])(classes), style: style, onClick: this.close },
+	      _extends({ className: (0, _classnames2["default"])(classes), style: style, onClick: this.close }, others),
 	      _react2["default"].createElement(
 	        'div',
 	        { className: componentClass + '-content' },
@@ -7713,6 +7723,12 @@
 	
 	var deselectCurrent = __webpack_require__(82);
 	
+	var clipboardToIE11Formatting = {
+	  "text/plain": "Text",
+	  "text/html": "Url",
+	  "default": "Text"
+	}
+	
 	var defaultMessage = "Copy to clipboard: #{key}, Enter";
 	
 	function format(message) {
@@ -7757,8 +7773,20 @@
 	      e.stopPropagation();
 	      if (options.format) {
 	        e.preventDefault();
-	        e.clipboardData.clearData();
-	        e.clipboardData.setData(options.format, text);
+	        if (typeof e.clipboardData === "undefined") { // IE 11
+	          debug && console.warn("unable to use e.clipboardData");
+	          debug && console.warn("trying IE specific stuff");
+	          window.clipboardData.clearData();
+	          var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"]
+	          window.clipboardData.setData(format, text);
+	        } else { // all other browsers
+	          e.clipboardData.clearData();
+	          e.clipboardData.setData(options.format, text);
+	        }
+	      }
+	      if (options.onCopy) {
+	        e.preventDefault();
+	        options.onCopy(e.clipboardData);
 	      }
 	    });
 	
@@ -7777,6 +7805,7 @@
 	    debug && console.warn("trying IE specific stuff");
 	    try {
 	      window.clipboardData.setData(options.format || "text", text);
+	      options.onCopy && options.onCopy(window.clipboardData);
 	      success = true;
 	    } catch (err) {
 	      debug && console.error("unable to copy using clipboardData: ", err);
@@ -34410,17 +34439,23 @@
 	  value: true
 	});
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(2);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
 	var _propTypes = __webpack_require__(6);
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _classnames = __webpack_require__(5);
+	var _classnames2 = __webpack_require__(5);
 	
-	var _classnames2 = _interopRequireDefault(_classnames);
+	var _classnames3 = _interopRequireDefault(_classnames2);
 	
 	var _Portal = __webpack_require__(112);
 	
@@ -34465,7 +34500,8 @@
 	   * @title 是否全屏loading
 	   */
 	  fullScreen: _propTypes2["default"].bool,
-	  wrapperClassName: _propTypes2["default"].string
+	  wrapperClassName: _propTypes2["default"].string,
+	  tip: _propTypes2["default"].string
 	};
 	
 	var defaultProps = {
@@ -34478,15 +34514,7 @@
 	  wrapperClassName: ""
 	};
 	
-	var sizeMap = {
-	  sm: "sm",
-	  lg: "lg"
-	},
-	    colorsMap = {
-	  primary: "primary",
-	  success: "success",
-	  warning: "warning"
-	};
+	var isReact16 = _reactDom2["default"].createPortal !== undefined;
 	
 	var Loading = function (_Component) {
 	  _inherits(Loading, _Component);
@@ -34497,58 +34525,68 @@
 	    return _possibleConstructorReturn(this, _Component.call(this, props));
 	  }
 	
-	  Loading.prototype.render = function render() {
-	    var _backClassObj;
-	
+	  Loading.prototype.componentDidMount = function componentDidMount() {
 	    var _props = this.props,
 	        clsPrefix = _props.clsPrefix,
-	        loadingType = _props.loadingType,
-	        size = _props.size,
-	        color = _props.color,
-	        show = _props.show,
-	        showBackDrop = _props.showBackDrop,
-	        container = _props.container,
-	        children = _props.children,
-	        fullScreen = _props.fullScreen,
-	        wrapperClassName = _props.wrapperClassName,
-	        indicator = _props.indicator,
-	        others = _objectWithoutProperties(_props, ["clsPrefix", "loadingType", "size", "color", "show", "showBackDrop", "container", "children", "fullScreen", "wrapperClassName", "indicator"]);
+	        container = _props.container;
 	
-	    var clsObj = {};
+	    if (isReact16 && container) {
+	      this.portalContainerNode = this.getContainer(this.props.container);
+	      this.portalContainerNode.className += " " + clsPrefix + "-container";
+	    }
+	  };
+	
+	  Loading.prototype.getContainer = function getContainer(container, defaultContainer) {
+	    container = typeof container === 'function' ? container() : container;
+	    return _reactDom2["default"].findDOMNode(container) || defaultContainer;
+	  };
+	
+	  Loading.prototype.render = function render() {
+	    var _classnames, _backClassObj;
+	
+	    var _props2 = this.props,
+	        clsPrefix = _props2.clsPrefix,
+	        clsLoadBack = _props2.clsLoadBack,
+	        loadingType = _props2.loadingType,
+	        size = _props2.size,
+	        color = _props2.color,
+	        show = _props2.show,
+	        showBackDrop = _props2.showBackDrop,
+	        container = _props2.container,
+	        children = _props2.children,
+	        fullScreen = _props2.fullScreen,
+	        wrapperClassName = _props2.wrapperClassName,
+	        indicator = _props2.indicator,
+	        tip = _props2.tip,
+	        others = _objectWithoutProperties(_props2, ["clsPrefix", "clsLoadBack", "loadingType", "size", "color", "show", "showBackDrop", "container", "children", "fullScreen", "wrapperClassName", "indicator", "tip"]);
 	
 	    if (!show) return null;
 	
-	    clsObj[clsPrefix + "-" + loadingType] = true;
+	    var clsObj = (0, _classnames3["default"])(clsPrefix, (_classnames = {}, _defineProperty(_classnames, clsPrefix + "-" + loadingType, true), _defineProperty(_classnames, clsPrefix + "-" + loadingType + "-sm", size === 'sm'), _defineProperty(_classnames, clsPrefix + "-" + loadingType + "-lg", size === 'lg'), _defineProperty(_classnames, clsPrefix + "-" + loadingType + "-" + color, !!color), _defineProperty(_classnames, clsPrefix + "-show-text", !!tip), _classnames), wrapperClassName);
 	
-	    if (sizeMap[size]) {
-	      clsObj[clsPrefix + "-" + loadingType + "-" + sizeMap[size]] = true;
-	    }
-	
-	    if (colorsMap[color]) {
-	      clsObj[clsPrefix + "-" + loadingType + "-" + colorsMap[color]] = true;
-	    }
-	
-	    var classes = (0, _classnames2["default"])(clsPrefix, clsObj);
+	    var classes = (0, _classnames3["default"])(clsPrefix, clsObj);
 	
 	    var dom = "";
 	
-	    if (wrapperClassName) {
-	      classes += " " + wrapperClassName;
-	    }
 	    if (loadingType === "custom" && !!indicator) {
 	      dom = _react2["default"].createElement(
 	        "div",
 	        null,
 	        _react2["default"].createElement(
 	          "div",
-	          { className: classes },
+	          _extends({ className: classes }, others),
 	          _react2["default"].createElement(
 	            "div",
-	            null,
+	            { className: clsPrefix + "-spin" },
 	            indicator
-	          )
+	          ),
+	          tip ? _react2["default"].createElement(
+	            "div",
+	            { className: clsPrefix + "-desc" },
+	            tip
+	          ) : null
 	        ),
-	        children && _react2["default"].createElement(
+	        !tip && children && _react2["default"].createElement(
 	          "div",
 	          { className: clsPrefix + "-desc" },
 	          children
@@ -34560,14 +34598,19 @@
 	        null,
 	        _react2["default"].createElement(
 	          "div",
-	          { className: classes },
+	          _extends({ className: classes }, others),
 	          _react2["default"].createElement(
 	            "div",
-	            null,
+	            { className: clsPrefix + "-spin" },
 	            _react2["default"].createElement("img", { src: loadImg })
-	          )
+	          ),
+	          tip ? _react2["default"].createElement(
+	            "p",
+	            { className: clsPrefix + "-desc" },
+	            tip
+	          ) : null
 	        ),
-	        children && _react2["default"].createElement(
+	        !tip && children && _react2["default"].createElement(
 	          "div",
 	          { className: clsPrefix + "-desc" },
 	          children
@@ -34579,14 +34622,19 @@
 	        null,
 	        _react2["default"].createElement(
 	          "div",
-	          { className: classes },
+	          _extends({ className: classes }, others),
 	          _react2["default"].createElement("div", null),
 	          _react2["default"].createElement("div", null),
 	          _react2["default"].createElement("div", null),
 	          _react2["default"].createElement("div", null),
 	          _react2["default"].createElement("div", null)
 	        ),
-	        children && _react2["default"].createElement(
+	        tip ? _react2["default"].createElement(
+	          "p",
+	          { className: clsPrefix + "-desc" },
+	          tip
+	        ) : null,
+	        !tip && children && _react2["default"].createElement(
 	          "div",
 	          { className: clsPrefix + "-desc" },
 	          children
@@ -34599,15 +34647,18 @@
 	    if (showBackDrop) {
 	      dom = _react2["default"].createElement(
 	        "div",
-	        { className: (0, _classnames2["default"])(backClassObj) },
+	        { className: (0, _classnames3["default"])(backClassObj) },
 	        dom
 	      );
 	    }
-	    //console.log(container);
 	
-	    return _react2["default"].createElement(
+	    return typeof window !== 'undefined' ? _react2["default"].createElement(
 	      _Portal2["default"],
 	      { container: container },
+	      dom
+	    ) : _react2["default"].createElement(
+	      "div",
+	      null,
 	      dom
 	    );
 	  };
