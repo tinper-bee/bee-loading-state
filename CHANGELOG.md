@@ -1,3 +1,12 @@
+## [2.0.5](https://github.com/tinper-bee/bee-loading-state/compare/v2.0.4...v2.0.5) (2020-06-01)
+
+
+### Bug Fixes
+
+* 文件大小写问题 ([eb52ccc](https://github.com/tinper-bee/bee-loading-state/commit/eb52ccc8a3294f29113cbfe729a19e43246ad39a))
+
+
+
 ## [2.0.4](https://github.com/tinper-bee/bee-loading-state/compare/v2.0.3...v2.0.4) (2020-05-25)
 
 
