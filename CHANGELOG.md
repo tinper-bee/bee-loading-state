@@ -3,6 +3,20 @@
 
 ### Bug Fixes
 
+* build ([8cea6fe](https://github.com/tinper-bee/bee-loading-state/commit/8cea6fec888bdb4baa71e6dd83a1c6c55c084d12))
+* 文件大小写问题 ([f320b89](https://github.com/tinper-bee/bee-loading-state/commit/f320b8983a74344aca36849ea16521480f8d38c3))
+* 文件大小写问题 ([c3ea4c8](https://github.com/tinper-bee/bee-loading-state/commit/c3ea4c8d9a5f4e94455162b427d793fdb0ca620a))
+* 文件大小写问题 ([4e4bfc0](https://github.com/tinper-bee/bee-loading-state/commit/4e4bfc07218529a4b4220895755bcdb336f68e5f))
+* 文件大小写问题 ([a471348](https://github.com/tinper-bee/bee-loading-state/commit/a4713483713e098b19716d33fbdfcca8399a6ead))
+* 文件大小写问题 ([eb52ccc](https://github.com/tinper-bee/bee-loading-state/commit/eb52ccc8a3294f29113cbfe729a19e43246ad39a))
+
+
+
+## [2.0.5](https://github.com/tinper-bee/bee-loading-state/compare/v2.0.4...v2.0.5) (2020-06-01)
+
+
+### Bug Fixes
+
 * 文件大小写问题 ([eb52ccc](https://github.com/tinper-bee/bee-loading-state/commit/eb52ccc8a3294f29113cbfe729a19e43246ad39a))
 
 
